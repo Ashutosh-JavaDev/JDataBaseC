@@ -6,6 +6,14 @@ class Deleting{
     private static final String url="jdbc:mysql://localhost:3306/my_DB";
     private static final String username="root";
     private  static final String password="@Radhakrishna297";
+    public void deletingData(){
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        }
+        catch(ClassNotFoundException e){
+            e.printStackTrace();
+        }
+    }
 }
 public class Delete {
     
