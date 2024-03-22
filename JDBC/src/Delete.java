@@ -13,6 +13,10 @@ class Deleting{
         catch(ClassNotFoundException e){
             e.printStackTrace();
         }
+        try{
+            Connection connection=DriverManager.getConnection(url,username,password);
+            
+        }
     }
 }
 public class Delete {
