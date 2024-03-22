@@ -35,5 +35,8 @@ class Displaying{
     }
 }
 public class Read {
-    
+    public static void main(String[] args) {
+        Displaying ob=new Displaying();
+        ob.disp();
+    }
 }
