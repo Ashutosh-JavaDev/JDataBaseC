@@ -25,6 +25,9 @@ class DBase{
                 System.out.println("Data NNot Inserted");
             }
         }
+        catch(Exception e){
+            e.printStackTrace();
+        }
     }
 }
 public class Insert {
