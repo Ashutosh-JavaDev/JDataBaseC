@@ -15,6 +15,14 @@ class Updating{
             e.printStackTrace();
             return;
         }
+        try{
+            Connection connection=DriverManager.getConnection(url, username, password);
+            Statement statement=connection.createStatement();
+            String query=String.format("Update Employee set username =Sanatani where id=3");
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+        }
     }
 }
 public class Update {
