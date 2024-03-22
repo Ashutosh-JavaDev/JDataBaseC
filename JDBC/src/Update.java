@@ -33,5 +33,8 @@ class Updating{
     }
 }
 public class Update {
-    
+    public static void main(String[] args) {
+        Updating ob=new Updating();
+        ob.UpdatingData();
+    }
 }
