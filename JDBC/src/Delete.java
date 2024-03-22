@@ -33,5 +33,8 @@ class Deleting{
     }
 }
 public class Delete {
-    
+    public static void main(String[] args) {
+        Deleting ob=new Deleting();
+        ob.deletingData();
+    }
 }
