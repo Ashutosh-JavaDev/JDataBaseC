@@ -4,7 +4,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.sql.SQLException;
 class Updating{
-    
+    private static final String url="jdbc:mysql://localhost:3306/my_DB";
 }
 public class Update {
     
