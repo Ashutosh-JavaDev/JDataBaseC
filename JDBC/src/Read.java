@@ -24,7 +24,7 @@ class Displaying{
                 int id=result.getInt("id");
                 String name=result.getString("username");
                 String Deg=result.getString("Degination");
-                System.out.print("ID: "+id+" Name: "+name+" Degination: "+Deg);
+                System.out.print("|ID: "+id+" |Name: "+name+" |Degination: "+Deg+"|");
               System.out.println();
             }
         }
