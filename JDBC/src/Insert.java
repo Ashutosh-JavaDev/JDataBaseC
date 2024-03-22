@@ -7,7 +7,12 @@ class DBase{
     private static final String username="root";
     private  static final String password="@Radhakrishna297";
     public static void data(){
-
+        try{
+            class.forName("com.mysql.cj.jdbc.Driver");
+        }
+        catch(ClassNotFoundException e){
+            e.printStackTrace();
+        }
     }
 }
 public class Insert {
