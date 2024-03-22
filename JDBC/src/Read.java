@@ -2,6 +2,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
 import java.sql.SQLException;
+import java.sql.ResultSet;
 class Displaying{
     private static final String url="jdbc:mysql://localhost:3306/my_DB";
     private static final String username="root";
@@ -18,6 +19,8 @@ class Displaying{
             Connection conn=DriverManager.getConnection(url, username, password);
             Statement state=conn.createStatement();
             String query="select*from Employee";
+            ResultSet result=state.executeQuery(query);
+            
         }
         catch(SQLException e){
             e.printStackTrace();
