@@ -24,9 +24,8 @@ class Displaying{
                 int id=result.getInt("id");
                 String name=result.getString("username");
                 String Deg=result.getString("Degination");
-                System.out.println("ID: "+id);
-                System.out.println("Name: "+name);
-                System.out.println("Degination: "+Deg);
+                System.out.print("ID: "+id+" Name: "+name+" Degination: "+Deg);
+              System.out.println();
             }
         }
         catch(SQLException e){
