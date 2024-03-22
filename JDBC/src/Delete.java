@@ -17,7 +17,7 @@ class Deleting{
         try{
             Connection connection=DriverManager.getConnection(url,username,password);
             Statement statement=connection.createStatement();
-            String query="Delete from student where id=2";
+            String query="Delete from student where id>2";
             int Affected=statement.executeUpdate(query);
             if(Affected>0){
                 System.out.println("Data Deleted Succesfully");
