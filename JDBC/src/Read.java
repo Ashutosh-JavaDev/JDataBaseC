@@ -20,7 +20,14 @@ class Displaying{
             Statement state=conn.createStatement();
             String query="select*from Employee";
             ResultSet result=state.executeQuery(query);
-            
+            while(result.next()){
+                int id=result.getInt("id");
+                String name=result.getString("username");
+                String Deg=result.getString("Degination");
+                System.out.println("ID: "+id);
+                System.out.println("Name: "+name);
+                System.out.println("Degination: "+Deg);
+            }
         }
         catch(SQLException e){
             e.printStackTrace();
