@@ -19,7 +19,7 @@ class DBase {
 
         try (Connection connection = DriverManager.getConnection(url, username, password);
              Statement statement = connection.createStatement()) {
-            String query = "INSERT INTO Employee(id,username, Degination) VALUES " +
+            String query = "INSERT INTO Employee(id,name, Degination) VALUES " +
                     "(1,'Ashutosh','FrontEnd Developer'), " +
                     "(2,'Ayush', 'Backend Developer'), " +
                     "(3,'Sahay', 'Full Stack Developer')";
