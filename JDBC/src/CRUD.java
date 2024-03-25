@@ -9,45 +9,45 @@ class crud {
     private static final String username = "root";
     private static final String password = "@Radhakrishna297";
 
-    public void Inserting() {
-        try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-        try {
-            Connection connection = DriverManager.getConnection(url, username, password);
-            Statement statement = connection.createStatement();
-            Scanner scanner = new Scanner(System.in);
+    // public void Inserting() {
+    //     try {
+    //         Class.forName("com.mysql.cj.jdbc.Driver");
+    //     } catch (ClassNotFoundException e) {
+    //         e.printStackTrace();
+    //     }
+    //     try {
+    //         Connection connection = DriverManager.getConnection(url, username, password);
+    //         Statement statement = connection.createStatement();
+    //         Scanner scanner = new Scanner(System.in);
 
-            while (true) {
-                System.out.println("Enter employee ID (or type 'stop' to stop): ");
-                String idInput = scanner.nextLine().trim();
-                if (idInput.equalsIgnoreCase("stop")) {
-                    break;
-                }
-                int id = Integer.parseInt(idInput);
+    //         while (true) {
+    //             System.out.println("Enter employee ID (or type 'stop' to stop): ");
+    //             String idInput = scanner.nextLine().trim();
+    //             if (idInput.equalsIgnoreCase("stop")) {
+    //                 break;
+    //             }
+    //             int id = Integer.parseInt(idInput);
 
-                System.out.print("Enter employee name: ");
-                String name = scanner.nextLine();
+    //             System.out.print("Enter employee name: ");
+    //             String name = scanner.nextLine();
 
-                System.out.print("Enter employee designation: ");
-                String designation = scanner.nextLine();
+    //             System.out.print("Enter employee designation: ");
+    //             String designation = scanner.nextLine();
 
-                String query = String.format("Insert into Employee(id,name,Degination) values (%d,'%s','%s')", id, name,
-                        designation);
-                int result = statement.executeUpdate(query);
-                if (result > 0) {
-                    System.out.println("Data Inserted Successfully");
-                } else {
-                    System.out.println("Data Not Inserted");
-                }
-            }
+    //             String query = String.format("Insert into Employee(id,name,Degination) values (%d,'%s','%s')", id, name,
+    //                     designation);
+    //             int result = statement.executeUpdate(query);
+    //             if (result > 0) {
+    //                 System.out.println("Data Inserted Successfully");
+    //             } else {
+    //                 System.out.println("Data Not Inserted");
+    //             }
+    //         }
 
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
+    //     } catch (SQLException e) {
+    //         e.printStackTrace();
+    //     }
+    // }
 
     public void Updateing() {
         Scanner sc = new Scanner(System.in);
@@ -74,6 +74,36 @@ class crud {
                     } else {
                         System.out.println("Data Not Inserted");
                     }
+                    break;
+                case 2:
+                    System.out.println("Enter the User ID whose Name Want to Update");
+                    int uID = sc.nextInt();
+                    System.out.print("New Name: ");
+                    String newName = sc.nextLine();
+                    String level = String.format("Update Employee set name =" + newName + "where id =" + uID);
+                    int affectedRow = statement.executeUpdate(level);
+                    if (affectedRow > 0) {
+                        System.out.println("Data Updated Succesfully");
+                    } else {
+                        System.out.println("Data Not Inserted");
+                    }
+                    break;
+                case 3:
+                    System.out.println("Enter the User ID whose Name Want to Update");
+                    int usID = sc.nextInt();
+                    System.out.print("New Degination: ");
+                    String newDesignation = sc.nextLine();
+                    String low = String
+                            .format("Update Employee set Degination =" + newDesignation + "where id =" + usID);
+                    int Affected = statement.executeUpdate(low);
+                    if (Affected > 0) {
+                        System.out.println("Data Updated Succesfully");
+                    } else {
+                        System.out.println("Data Not Inserted");
+                    }
+                    System.out.println("Data Not Inserted");
+                    break;
+
             }
 
         } catch (SQLException e) {
@@ -85,6 +115,6 @@ class crud {
 public class CRUD {
     public static void main(String[] args) {
         crud ob = new crud();
-        ob.Inserting();
+        ob.Updateing();
     }
 }
