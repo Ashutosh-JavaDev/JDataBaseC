@@ -195,6 +195,6 @@ class crud {
 public class CRUD {
     public static void main(String[] args) {
         crud ob = new crud();
-        ob.Updateing();
+        ob.choose();
     }
 }
