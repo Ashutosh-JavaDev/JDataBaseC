@@ -63,9 +63,17 @@ class crud {
             int press = sc.nextInt();
             switch (press) {
                 case 1:
+                    System.out.println("Which User Id, Yopu want to Update?");
+                    int oldId = sc.nextInt();
                     System.out.print("New ID Number: ");
                     int newID = sc.nextInt();
-                    String query = String.format("Update Employee set id =" + newID + "where id = 2");
+                    String query = String.format("Update Employee set id =" + newID + "where id =" + oldId);
+                    int result = statement.executeUpdate(query);
+                    if (result > 0) {
+                        System.out.println("Data Updated Succesfully");
+                    } else {
+                        System.out.println("Data Not Inserted");
+                    }
             }
 
         } catch (SQLException e) {
