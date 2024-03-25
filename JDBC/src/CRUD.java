@@ -78,6 +78,7 @@ class crud {
                 case 2:
                     System.out.println("Enter the User ID whose Name Want to Update");
                     int uID = sc.nextInt();
+                    sc.nextLine();
                     System.out.print("New Name: ");
                     String newName = sc.nextLine();
                     String level = String.format("Update Employee set name ='%s' where id=%o",newName,uID);
@@ -91,6 +92,8 @@ class crud {
                 case 3:
                     System.out.println("Enter the User ID whose Name Want to Update");
                     int usID = sc.nextInt();
+                    sc.nextLine();
+
                     System.out.print("New Degination: ");
                     String newDesignation = sc.nextLine();
                     String low = String.format("Update Employee set Degination ='%s' where id=%o",newDesignation,usID);
@@ -100,7 +103,6 @@ class crud {
                     } else {
                         System.out.println("Data Not Inserted");
                     }
-                    System.out.println("Data Not Inserted");
                     break;
 
             }
