@@ -48,6 +48,15 @@ class crud {
             e.printStackTrace();
         }
     }
+    public void Updateing(){
+        try{
+            Class.forName("com.mysql.cj.jsbc.Driver");  
+
+        }
+        catch(ClassNotFoundException e){
+            e.printStackTrace();    
+        }
+    }
 }
 
 public class CRUD {
