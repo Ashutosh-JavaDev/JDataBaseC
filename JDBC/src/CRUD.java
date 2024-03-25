@@ -13,6 +13,14 @@ class crud{
         catch(ClassNotFoundException e){
             e.printStackTrace();
         }
+        try{
+            Connection connection=DriverManager.getConnection(url, username, password);
+            Statement statement=connection.createStatement();
+
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+        } 
     }
 }
 public class CRUD {
