@@ -52,7 +52,7 @@ class crud {
     public void Updateing() {
         Scanner sc = new Scanner(System.in);
         try {
-            Class.forName("com.mysql.cj.jsbc.Driver");
+            Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
@@ -63,11 +63,11 @@ class crud {
             int press = sc.nextInt();
             switch (press) {
                 case 1:
-                    System.out.println("Which User Id, Yopu want to Update?");
+                    System.out.println("Which User Id, You want to Update?");
                     int oldId = sc.nextInt();
                     System.out.print("New ID Number: ");
                     int newID = sc.nextInt();
-                    String query = String.format("Update Employee set id =" + newID + "where id =" + oldId);
+                    String query = String.format("Update Employee set id =%o where id=%o",newID,oldId);
                     int result = statement.executeUpdate(query);
                     if (result > 0) {
                         System.out.println("Data Updated Succesfully");
@@ -80,7 +80,7 @@ class crud {
                     int uID = sc.nextInt();
                     System.out.print("New Name: ");
                     String newName = sc.nextLine();
-                    String level = String.format("Update Employee set name =" + newName + "where id =" + uID);
+                    String level = String.format("Update Employee set name ='%s' where id=%o",newName,uID);
                     int affectedRow = statement.executeUpdate(level);
                     if (affectedRow > 0) {
                         System.out.println("Data Updated Succesfully");
