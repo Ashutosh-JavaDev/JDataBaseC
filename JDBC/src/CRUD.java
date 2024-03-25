@@ -13,95 +13,94 @@ class crud {
     private static final String username = "root";
     private static final String password = "@Radhakrishna297";
 
-    // public void Inserting() {
-    // try {
-    // Class.forName("com.mysql.cj.jdbc.Driver");
-    // } catch (ClassNotFoundException e) {
-    // e.printStackTrace();
-    // }
-    // try {
-    // Connection connection = DriverManager.getConnection(url, username, password);
-    // Statement statement = connection.createStatement();
-    // Scanner scanner = new Scanner(System.in);
+    public void Inserting() {
+    try {
+    Class.forName("com.mysql.cj.jdbc.Driver");
+    } catch (ClassNotFoundException e) {
+    e.printStackTrace();
+    }
+    try {
+    Connection connection = DriverManager.getConnection(url, username, password);
+    Statement statement = connection.createStatement();
+    Scanner scanner = new Scanner(System.in);
 
-    // while (true) {
-    // System.out.println("Enter employee ID (or type 'stop' to stop): ");
-    // String idInput = scanner.nextLine().trim();
-    // if (idInput.equalsIgnoreCase("stop")) {
-    // break;
-    // }
-    // int id = Integer.parseInt(idInput);
+    while (true) {
+    System.out.println("Enter employee ID (or type 'stop' to stop): ");
+    String idInput = scanner.nextLine().trim();
+    if (idInput.equalsIgnoreCase("stop")) {
+    break;
+    }
+    int id = Integer.parseInt(idInput);
 
-    // System.out.print("Enter employee name: ");
-    // String name = scanner.nextLine();
+    System.out.print("Enter employee name: ");
+    String name = scanner.nextLine();
 
-    // System.out.print("Enter employee designation: ");
-    // String designation = scanner.nextLine();
+    System.out.print("Enter employee designation: ");
+    String designation = scanner.nextLine();
 
-    // String query = String.format("Insert into Employee(id,name,Degination) values
-    // (%d,'%s','%s')", id, name,
-    // designation);
-    // int result = statement.executeUpdate(query);
-    // if (result > 0) {
-    // System.out.println("Data Inserted Successfully");
-    // } else {
-    // System.out.println("Data Not Inserted");
-    // }
-    // }
+    String query = String.format("Insert into Employee(id,name,Degination) values
+    (%d,'%s','%s')", id, name,
+    designation);
+    int result = statement.executeUpdate(query);
+    if (result > 0) {
+    System.out.println("Data Inserted Successfully");
+    } else {
+    System.out.println("Data Not Inserted");
+    }
+    }
 
-    // } catch (SQLException e) {
-    // e.printStackTrace();
-    // }
-    // }
-    public void Read(){
+    } catch (SQLException e) {
+    e.printStackTrace();
+    }
+    }
+
+    public void Read() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-        try{
-            Connection conn=DriverManager.getConnection(url, username, password);
-            Statement statement=conn.createStatement();
-            String queue="select*from Employee";
-            ResultSet res=statement.executeQuery(queue);
-            while(res.next()){
-                int id=res.getInt("id");
-                String name=res.getString("name");
-                String Desi=res.getString("Degination");
-                System.out.print("|ID: "+id+" |Name: "+name+" |Degination: "+Desi+"|");
+        try {
+            Connection conn = DriverManager.getConnection(url, username, password);
+            Statement statement = conn.createStatement();
+            String queue = "select*from Employee";
+            ResultSet res = statement.executeQuery(queue);
+            while (res.next()) {
+                int id = res.getInt("id");
+                String name = res.getString("name");
+                String Desi = res.getString("Degination");
+                System.out.print("|ID: " + id + " |Name: " + name + " |Degination: " + Desi + "|");
                 System.out.println();
             }
-        }
-        catch(SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
-    public void Delete(){
-        Scanner sc=new Scanner(System.in);
+    public void Delete() {
+        Scanner sc = new Scanner(System.in);
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-        try{
-            Connection  connec=DriverManager.getConnection(url, username, password);
-            Statement statement=connec.createStatement();
+        try {
+            Connection connec = DriverManager.getConnection(url, username, password);
+            Statement statement = connec.createStatement();
             System.out.println("Which Employee ID you want to Delete?");
-            int empID=sc.nextInt();
-            String Query=String.format("Delete from Employee where id=%o",empID);
-            int AffectedRow=statement.executeUpdate(Query);
-            if(AffectedRow>0){
+            int empID = sc.nextInt();
+            String Query = String.format("Delete from Employee where id=%o", empID);
+            int AffectedRow = statement.executeUpdate(Query);
+            if (AffectedRow > 0) {
                 System.out.println("Data Deleted Succesfully");
-            }
-            else{
+            } else {
                 System.out.println("Data Not Deleted");
             }
-        }
-        catch(SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }
+
     public void Updateing() {
         Scanner sc = new Scanner(System.in);
         try {
@@ -158,11 +157,37 @@ class crud {
                         System.out.println("Data Not Inserted");
                     }
                     break;
-
+                default:
+                    System.out.println("Invalid Press");
+                    break;
             }
 
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+    }
+
+    public void choose() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println(
+                "Press 1:To Insert Data\nPress 2:To Read Data\nPress 3:To Update Data\nPress 4:To Delete Data");
+        int press = sc.nextInt();
+        switch (press) {
+            case 1:
+                Inserting();
+                break;
+            case 2:
+                Read();
+                break;
+            case 3:
+                Updateing();
+                break;
+            case 4:
+                Delete();
+                break;
+            default:
+                System.out.println("Invaid Press");
+                break;
         }
     }
 }
