@@ -68,7 +68,7 @@ class crud {
                 int id=res.getInt("id");
                 String name=res.getString("name");
                 String Desi=res.getString("Degination");
-                System.out.print("|ID: "+id+" |Name: "+name+" |Degination: "+Deg+"|");
+                System.out.print("|ID: "+id+" |Name: "+name+" |Degination: "+Desi+"|");
                 System.out.println();
             }
         }
