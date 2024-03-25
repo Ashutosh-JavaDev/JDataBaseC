@@ -77,6 +77,31 @@ class crud {
         }
     }
 
+    public void Delete(){
+        Scanner sc=new Scanner(System.in);
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        try{
+            Connection  connec=DriverManager.getConnection(url, username, password);
+            Statement statement=connec.createStatement();
+            System.out.println("Which Employee ID you want to Delete?");
+            int empID=sc.nextInt();
+            String Query=String.format("Delete from Employee where id=%o",empID);
+            int AffectedRow=statement.executeUpdate(Query);
+            if(AffectedRow>0){
+                System.out.println("Data Deleted Succesfully");
+            }
+            else{
+                System.out.println("Data Not Deleted");
+            }
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+        }
+    }
     public void Updateing() {
         Scanner sc = new Scanner(System.in);
         try {
