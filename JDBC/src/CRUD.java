@@ -53,7 +53,7 @@ class crud {
     // e.printStackTrace();
     // }
     // }
-    public void excep() {
+    public void Read(){
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException e) {
