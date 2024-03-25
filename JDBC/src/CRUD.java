@@ -38,9 +38,7 @@ class crud {
     System.out.print("Enter employee designation: ");
     String designation = scanner.nextLine();
 
-    String query = String.format("Insert into Employee(id,name,Degination) values
-    (%d,'%s','%s')", id, name,
-    designation);
+    String query = String.format("Insert into Employee(id,name,Degination) values(%d,'%s','%s')", id, name,designation);
     int result = statement.executeUpdate(query);
     if (result > 0) {
     System.out.println("Data Inserted Successfully");
