@@ -20,7 +20,6 @@ class crud {
             Statement statement = connection.createStatement();
             Scanner scanner = new Scanner(System.in);
 
-           
             while (true) {
                 System.out.println("Enter employee ID (or type 'stop' to stop): ");
                 String idInput = scanner.nextLine().trim();
@@ -35,7 +34,8 @@ class crud {
                 System.out.print("Enter employee designation: ");
                 String designation = scanner.nextLine();
 
-                String query = String.format("Insert into Employee(id,name,Degination) values (%d,'%s','%s')", id, name, designation);
+                String query = String.format("Insert into Employee(id,name,Degination) values (%d,'%s','%s')", id, name,
+                        designation);
                 int result = statement.executeUpdate(query);
                 if (result > 0) {
                     System.out.println("Data Inserted Successfully");
@@ -48,13 +48,28 @@ class crud {
             e.printStackTrace();
         }
     }
-    public void Updateing(){
-        try{
-            Class.forName("com.mysql.cj.jsbc.Driver");  
 
+    public void Updateing() {
+        Scanner sc = new Scanner(System.in);
+        try {
+            Class.forName("com.mysql.cj.jsbc.Driver");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
         }
-        catch(ClassNotFoundException e){
-            e.printStackTrace();    
+        try {
+            Connection connection = DriverManager.getConnection(url, username, password);
+            Statement statement = connection.createStatement();
+            System.out.println("Press 1: To Update ID\nPress 2: To Update Name\nPress 3: To Update Designation");
+            int press = sc.nextInt();
+            switch (press) {
+                case 1:
+                    System.out.print("New ID Number: ");
+                    int newID = sc.nextInt();
+                    String query = String.format("Update Employee set id =" + newID + "where id = 2");
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 }
