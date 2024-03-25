@@ -93,8 +93,7 @@ class crud {
                     int usID = sc.nextInt();
                     System.out.print("New Degination: ");
                     String newDesignation = sc.nextLine();
-                    String low = String
-                            .format("Update Employee set Degination =" + newDesignation + "where id =" + usID);
+                    String low = String.format("Update Employee set Degination ='%s' where id=%o",newDesignation,usID);
                     int Affected = statement.executeUpdate(low);
                     if (Affected > 0) {
                         System.out.println("Data Updated Succesfully");
