@@ -36,6 +36,7 @@ class crud {
                 int id = Integer.parseInt(idInput);
                 System.out.print("Department ID: ");
                 int Dep = scanner.nextInt();
+                scanner.nextLine();
                 System.out.print("Enter First name: ");
                 String Fname = scanner.nextLine();
                 System.out.println("Enter Last name");
@@ -57,10 +58,12 @@ class crud {
                 String email = scanner.nextLine();
                 System.out.print("Mobile Number: ");
                 int phone = scanner.nextInt();
+                scanner.nextLine();
                 System.out.print("City: ");
                 String City = scanner.nextLine();
                 System.out.print("Salary: ");
                 int sal = scanner.nextInt();
+                scanner.nextLine();
                 System.out.print("Designation: ");
                 String Desi = scanner.nextLine();
                 System.out.print("Employee Status\n('A'Active/'IN'InActive/'L'Leave): ");
