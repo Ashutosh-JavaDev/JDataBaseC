@@ -91,7 +91,6 @@ class crud {
 
                 System.out.print("Mobile Number: ");
                 String phone = scanner.nextLine();
-                scanner.nextLine(); // Consume the newline character after reading an integer
 
                 System.out.print("City: ");
                 String city = scanner.nextLine();
@@ -107,12 +106,7 @@ class crud {
                 String status = scanner.nextLine().toUpperCase();
 
                 // Prepare the SQL query
-                String query = String.format(
-                        "INSERT INTO Employee(id, department_id, first_name, last_name, dob, gender, email, phone, city, salary, designation, status) "
-                                +
-                                "VALUES(%d, %d, '%s', '%s', '%s', '%s', '%s', %d, '%s', '%s', '%s', '%s')",
-                        id, departmentId, firstName, lastName, dobInput, gender, email, phone, city, salary,
-                        designation, status);
+                String query = String.format("INSERT INTO Employee(id, department_id, first_name, last_name, dob, gender, email, phone, city, salary, designation, status) "+"VALUES(%d, %d, '%s', '%s', '%s', '%s', '%s', %d, '%s', '%s', '%s', '%s')",id, departmentId, firstName, lastName, dobInput, gender, email, phone, city, salary,designation, status);
 
                 // Execute the query
                 int result = statement.executeUpdate(query);
