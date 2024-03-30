@@ -90,7 +90,7 @@ class crud {
                 String email = scanner.nextLine();
 
                 System.out.print("Mobile Number: ");
-                int phone = scanner.nextInt();
+                String phone = scanner.nextLine();
                 scanner.nextLine(); // Consume the newline character after reading an integer
 
                 System.out.print("City: ");
@@ -110,7 +110,7 @@ class crud {
                 String query = String.format(
                         "INSERT INTO Employee(id, department_id, first_name, last_name, dob, gender, email, phone, city, salary, designation, status) "
                                 +
-                                "VALUES(%d, %d, '%s', '%s', '%s', '%s', '%s', %d, '%s', %d, '%s', '%s')",
+                                "VALUES(%d, %d, '%s', '%s', '%s', '%s', '%s', %d, '%s', '%s', '%s', '%s')",
                         id, departmentId, firstName, lastName, dobInput, gender, email, phone, city, salary,
                         designation, status);
 
