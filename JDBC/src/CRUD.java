@@ -41,34 +41,32 @@ class crud {
                 scanner.nextLine(); // Consume the newline character after reading an integer
 
                 System.out.print("Enter First name: ");
-                try{
                 String firstName = scanner.nextLine();
-                    if(firstName.equals(" ")){
+
+                try {
+                    if (firstName.equals(" ")) {
                         System.out.println("Enter Valid Name");
-                        firstName=scanner.nextLine();
-                    }
-                    else{
+                        firstName = scanner.nextLine();
+                    } else {
                         continue;
                     }
-                }
-                catch(Exception e){
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
                 System.out.print("Enter Last name: ");
-                try{
-                    String lastName = scanner.nextLine();
+                String lastName = scanner.nextLine();
 
-                        if(lastName.equals(" ")){
-                            System.out.println("Enter Valid Name");
-                            lastName=scanner.nextLine();
-                        }
-                        else{
-                            continue;
-                        }
+                try {
+
+                    if (lastName.equals(" ")) {
+                        System.out.println("Enter Valid Name");
+                        lastName = scanner.nextLine();
+                    } else {
+                        continue;
                     }
-                    catch(Exception e){
-                        e.printStackTrace();
-                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
 
                 System.out.println("Enter Date of Birth 'YYYY-MM-DD'");
                 String dobInput = scanner.nextLine(); // Read the input as a String
@@ -109,9 +107,11 @@ class crud {
 
                 // Prepare the SQL query
                 String query = String.format(
-                        "INSERT INTO Employee(id, department_id, first_name, last_name, dob, gender, email, phone, city, salary, designation, status) " +
+                        "INSERT INTO Employee(id, department_id, first_name, last_name, dob, gender, email, phone, city, salary, designation, status) "
+                                +
                                 "VALUES(%d, %d, '%s', '%s', '%s', '%s', '%s', %d, '%s', %d, '%s', '%s')",
-                        id, departmentId, firstName, lastName, dobInput, gender, email, phone, city, salary, designation, status);
+                        id, departmentId, firstName, lastName, dobInput, gender, email, phone, city, salary,
+                        designation, status);
 
                 // Execute the query
                 int result = statement.executeUpdate(query);
@@ -125,7 +125,7 @@ class crud {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        
+
     }
 
     public void Read() {
