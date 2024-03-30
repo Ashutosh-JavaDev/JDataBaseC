@@ -35,16 +35,13 @@ class crud {
                 }
                 int id = Integer.parseInt(idInput);
                 System.out.print("Department ID: ");
-                int Dep=scanner.nextInt();
+                int Dep = scanner.nextInt();
                 System.out.print("Enter First name: ");
                 String Fname = scanner.nextLine();
-
                 System.out.println("Enter Last name");
                 String Lname = scanner.nextLine();
-
                 System.out.println("Enter Date of Birth 'YY-MM-DD'");
                 String dobInput = scanner.nextLine(); // Read the input as a String
-
                 // Define a DateTimeFormatter for parsing the input
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yy-MM-dd");
 
@@ -54,7 +51,6 @@ class crud {
                 } catch (DateTimeParseException e) {
                     System.out.println("Invalid date format. Please enter the date in 'YY-MM-DD' format.");
                 }
-
                 System.out.print("Enter Gender ('M/F/T'): ");
                 String gender = scanner.nextLine().toUpperCase();
                 System.out.print("Email: ");
@@ -62,13 +58,14 @@ class crud {
                 System.out.print("Mobile Number: ");
                 int phone = scanner.nextInt();
                 System.out.print("City: ");
-                String City=scanner.nextLine();
-                System.out.print("")
-                System.out.print("Enter employee designation: ");
-                String designation = scanner.nextLine();
-
-                String query = String.format("Insert into Employee(id,name,Degination) values(%d,'%s','%s')", id, Fname,
-                        designation);
+                String City = scanner.nextLine();
+                System.out.print("Salary: ");
+                int sal = scanner.nextInt();
+                System.out.print("Designation: ");
+                String Desi = scanner.nextLine();
+                System.out.print("Employee Status\n('A'Active/'IN'InActive/'L'Leave): ");
+                String Stat = scanner.nextLine().toUpperCase();
+                String query = String.format("Insert into Employee(id,name,Degination) values(%d,'%s','%s',yy-MM-dd,'%s','%s',%d,'%s','%s','%s','%s')", id, Fname,Lname);
                 int result = statement.executeUpdate(query);
                 if (result > 0) {
                     System.out.println("Data Inserted Successfully");
