@@ -31,18 +31,24 @@ class crud {
                 System.out.println("Enter employee ID (or type 'stop' to stop): ");
                 String idInput = scanner.nextLine().trim();
                 if (idInput.equalsIgnoreCase("stop")) {
-                    break;
+                    break; // Exit loop if user enters 'stop'
                 }
+
                 int id = Integer.parseInt(idInput);
+
                 System.out.print("Department ID: ");
-                int Dep = scanner.nextInt();
-                scanner.nextLine();
+                int departmentId = scanner.nextInt();
+                scanner.nextLine(); // Consume the newline character after reading an integer
+
                 System.out.print("Enter First name: ");
-                String Fname = scanner.nextLine();
-                System.out.println("Enter Last name");
-                String Lname = scanner.nextLine();
+                String firstName = scanner.nextLine();
+
+                System.out.print("Enter Last name: ");
+                String lastName = scanner.nextLine();
+
                 System.out.println("Enter Date of Birth 'YY-MM-DD'");
                 String dobInput = scanner.nextLine(); // Read the input as a String
+
                 // Define a DateTimeFormatter for parsing the input
                 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yy-MM-dd");
 
@@ -51,37 +57,51 @@ class crud {
                     System.out.println("Date of Birth: " + dob);
                 } catch (DateTimeParseException e) {
                     System.out.println("Invalid date format. Please enter the date in 'YY-MM-DD' format.");
+                    continue; // Continue to the next iteration of the loop
                 }
+
                 System.out.print("Enter Gender ('M/F/T'): ");
                 String gender = scanner.nextLine().toUpperCase();
+
                 System.out.print("Email: ");
                 String email = scanner.nextLine();
+
                 System.out.print("Mobile Number: ");
                 int phone = scanner.nextInt();
-                scanner.nextLine();
+                scanner.nextLine(); // Consume the newline character after reading an integer
+
                 System.out.print("City: ");
-                String City = scanner.nextLine();
+                String city = scanner.nextLine();
+
                 System.out.print("Salary: ");
-                int sal = scanner.nextInt();
-                scanner.nextLine();
+                int salary = scanner.nextInt();
+                scanner.nextLine(); // Consume the newline character after reading an integer
+
                 System.out.print("Designation: ");
-                String Desi = scanner.nextLine();
+                String designation = scanner.nextLine();
+
                 System.out.print("Employee Status\n('A'Active/'IN'InActive/'L'Leave): ");
-                String Stat = scanner.nextLine().toUpperCase();
+                String status = scanner.nextLine().toUpperCase();
+
+                // Prepare the SQL query
                 String query = String.format(
-                        "Insert into Employee(id,name,Degination) values(%d,%d,'%s','%s',yy-MM-dd,'%s','%s',%d,'%s','%s','%s','%s')",
-                        id, Dep, Fname, Lname, dobInput, gender, email, phone, City, sal, Desi, Stat);
+                        "INSERT INTO Employee(id, department_id, first_name, last_name, dob, gender, email, phone, city, salary, designation, status) " +
+                                "VALUES(%d, %d, '%s', '%s', '%s', '%s', '%s', %d, '%s', %d, '%s', '%s')",
+                        id, departmentId, firstName, lastName, dobInput, gender, email, phone, city, salary, designation, status);
+
+                // Execute the query
                 int result = statement.executeUpdate(query);
+
                 if (result > 0) {
                     System.out.println("Data Inserted Successfully");
                 } else {
                     System.out.println("Data Not Inserted");
                 }
             }
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        
     }
 
     public void Read() {
