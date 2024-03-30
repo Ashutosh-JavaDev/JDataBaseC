@@ -17,58 +17,69 @@ class crud {
     private static final String password = "@Radhakrishna297";
 
     public void Inserting() {
-    try {
-    Class.forName("com.mysql.cj.jdbc.Driver");
-    } catch (ClassNotFoundException e) {
-    e.printStackTrace();
-    }
-    try {
-    Connection connection = DriverManager.getConnection(url, username, password);
-    Statement statement = connection.createStatement();
-    Scanner scanner = new Scanner(System.in);
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        try {
+            Connection connection = DriverManager.getConnection(url, username, password);
+            Statement statement = connection.createStatement();
+            Scanner scanner = new Scanner(System.in);
 
-    while (true) {
-    System.out.println("Enter employee ID (or type 'stop' to stop): ");
-    String idInput = scanner.nextLine().trim();
-    if (idInput.equalsIgnoreCase("stop")) {
-    break;
-    }
-    int id = Integer.parseInt(idInput);
+            while (true) {
+                System.out.println("Enter employee ID (or type 'stop' to stop): ");
+                String idInput = scanner.nextLine().trim();
+                if (idInput.equalsIgnoreCase("stop")) {
+                    break;
+                }
+                int id = Integer.parseInt(idInput);
+                System.out.print("Department ID: ");
+                int Dep=scanner.nextInt();
+                System.out.print("Enter First name: ");
+                String Fname = scanner.nextLine();
 
-    System.out.print("Enter First name: ");
-    String Fname = scanner.nextLine();
+                System.out.println("Enter Last name");
+                String Lname = scanner.nextLine();
 
-    System.out.println("Enter Last name");
-    String Lname=scanner.nextLine();
+                System.out.println("Enter Date of Birth 'YY-MM-DD'");
+                String dobInput = scanner.nextLine(); // Read the input as a String
 
-    System.out.println("Enter Date of Birth 'YY-MM-DD'");
-    String dobInput = scanner.nextLine(); // Read the input as a String
-    
-    // Define a DateTimeFormatter for parsing the input
-    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yy-MM-dd");
-    
-    try {
-        LocalDate dob = LocalDate.parse(dobInput, formatter); // Parse the input into LocalDate
-        System.out.println("Date of Birth: " + dob);
-    } catch (DateTimeParseException e) {
-        System.out.println("Invalid date format. Please enter the date in 'YY-MM-DD' format.");
-    }
+                // Define a DateTimeFormatter for parsing the input
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yy-MM-dd");
 
-    System.out.print("Enter employee designation: ");
-    String designation = scanner.nextLine();
+                try {
+                    LocalDate dob = LocalDate.parse(dobInput, formatter); // Parse the input into LocalDate
+                    System.out.println("Date of Birth: " + dob);
+                } catch (DateTimeParseException e) {
+                    System.out.println("Invalid date format. Please enter the date in 'YY-MM-DD' format.");
+                }
 
-    String query = String.format("Insert into Employee(id,name,Degination) values(%d,'%s','%s')", id, Fname,designation);
-    int result = statement.executeUpdate(query);
-    if (result > 0) {
-    System.out.println("Data Inserted Successfully");
-    } else {
-    System.out.println("Data Not Inserted");
-    }
-    }
+                System.out.print("Enter Gender ('M/F/T'): ");
+                String gender = scanner.nextLine().toUpperCase();
+                System.out.print("Email: ");
+                String email = scanner.nextLine();
+                System.out.print("Mobile Number: ");
+                int phone = scanner.nextInt();
+                System.out.print("City: ");
+                String City=scanner.nextLine();
+                System.out.print("")
+                System.out.print("Enter employee designation: ");
+                String designation = scanner.nextLine();
 
-    } catch (SQLException e) {
-    e.printStackTrace();
-    }
+                String query = String.format("Insert into Employee(id,name,Degination) values(%d,'%s','%s')", id, Fname,
+                        designation);
+                int result = statement.executeUpdate(query);
+                if (result > 0) {
+                    System.out.println("Data Inserted Successfully");
+                } else {
+                    System.out.println("Data Not Inserted");
+                }
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public void Read() {
