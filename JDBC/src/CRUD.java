@@ -65,7 +65,7 @@ class crud {
                 String Desi = scanner.nextLine();
                 System.out.print("Employee Status\n('A'Active/'IN'InActive/'L'Leave): ");
                 String Stat = scanner.nextLine().toUpperCase();
-                String query = String.format("Insert into Employee(id,name,Degination) values(%d,'%s','%s',yy-MM-dd,'%s','%s',%d,'%s','%s','%s','%s')", id, Fname,Lname);
+                String query = String.format("Insert into Employee(id,name,Degination) values(%d,'%s','%s',yy-MM-dd,'%s','%s',%d,'%s','%s','%s','%s')", id, Fname,Lname,dobInput,gender,email,phone,City,sal,Desi,Stat);
                 int result = statement.executeUpdate(query);
                 if (result > 0) {
                     System.out.println("Data Inserted Successfully");
