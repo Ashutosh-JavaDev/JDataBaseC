@@ -50,13 +50,13 @@ class crud {
                 String dobInput = scanner.nextLine(); // Read the input as a String
 
                 // Define a DateTimeFormatter for parsing the input
-                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yy-MM-dd");
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
                 try {
                     LocalDate dob = LocalDate.parse(dobInput, formatter); // Parse the input into LocalDate
                     System.out.println("Date of Birth: " + dob);
                 } catch (DateTimeParseException e) {
-                    System.out.println("Invalid date format. Please enter the date in 'YY-MM-DD' format.");
+                    System.out.println("Invalid date format. Please enter the date in 'YYYY-MM-DD' format.");
                     continue; // Continue to the next iteration of the loop
                 }
 
