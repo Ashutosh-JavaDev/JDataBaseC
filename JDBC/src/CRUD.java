@@ -48,7 +48,7 @@ class crud {
                         System.out.println("Enter Valid Name");
                         firstName = scanner.nextLine();
                     } else {
-                        continue;
+                        System.out.println("First Name: "+firstName);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -62,7 +62,8 @@ class crud {
                         System.out.println("Enter Valid Name");
                         lastName = scanner.nextLine();
                     } else {
-                        continue;
+                        System.out.println("Last Name: "+lastName);
+
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
