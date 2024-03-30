@@ -65,7 +65,9 @@ class crud {
                 String Desi = scanner.nextLine();
                 System.out.print("Employee Status\n('A'Active/'IN'InActive/'L'Leave): ");
                 String Stat = scanner.nextLine().toUpperCase();
-                String query = String.format("Insert into Employee(id,name,Degination) values(%d,%d,'%s','%s',yy-MM-dd,'%s','%s',%d,'%s','%s','%s','%s')", id,Dep, Fname,Lname,dobInput,gender,email,phone,City,sal,Desi,Stat);
+                String query = String.format(
+                        "Insert into Employee(id,name,Degination) values(%d,%d,'%s','%s',yy-MM-dd,'%s','%s',%d,'%s','%s','%s','%s')",
+                        id, Dep, Fname, Lname, dobInput, gender, email, phone, City, sal, Desi, Stat);
                 int result = statement.executeUpdate(query);
                 if (result > 0) {
                     System.out.println("Data Inserted Successfully");
@@ -194,20 +196,17 @@ class crud {
 
     public void choose() {
         Scanner sc = new Scanner(System.in);
-        System.out.println(
-                "Press 1:To Insert Data\nPress 2:To Read Data\nPress 3:To Update Data\nPress 4:To Delete Data");
+        Inserting();
+        System.out.println("Press 1:To Read Data\nPress 2:To Update Data\nPress 3:To Delete Data");
         int press = sc.nextInt();
         switch (press) {
             case 1:
-                Inserting();
-                break;
-            case 2:
                 Read();
                 break;
-            case 3:
+            case 2:
                 Updateing();
                 break;
-            case 4:
+            case 3:
                 Delete();
                 break;
             default:
