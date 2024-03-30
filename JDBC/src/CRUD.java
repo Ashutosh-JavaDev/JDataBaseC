@@ -41,12 +41,36 @@ class crud {
                 scanner.nextLine(); // Consume the newline character after reading an integer
 
                 System.out.print("Enter First name: ");
+                try{
                 String firstName = scanner.nextLine();
-
+                    if(firstName.equals(" ")){
+                        System.out.println("Enter Valid Name");
+                        firstName=scanner.nextLine();
+                    }
+                    else{
+                        continue;
+                    }
+                }
+                catch(Exception e){
+                    e.printStackTrace();
+                }
                 System.out.print("Enter Last name: ");
-                String lastName = scanner.nextLine();
+                try{
+                    String lastName = scanner.nextLine();
 
-                System.out.println("Enter Date of Birth 'YY-MM-DD'");
+                        if(lastName.equals(" ")){
+                            System.out.println("Enter Valid Name");
+                            lastName=scanner.nextLine();
+                        }
+                        else{
+                            continue;
+                        }
+                    }
+                    catch(Exception e){
+                        e.printStackTrace();
+                    }
+
+                System.out.println("Enter Date of Birth 'YYYY-MM-DD'");
                 String dobInput = scanner.nextLine(); // Read the input as a String
 
                 // Define a DateTimeFormatter for parsing the input
