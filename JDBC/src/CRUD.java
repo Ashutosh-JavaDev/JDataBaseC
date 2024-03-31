@@ -97,7 +97,7 @@ class crud {
 
                 System.out.print("Salary: ");
                 int salary = scanner.nextInt();
-                scanner.nextLine(); // Consume the newline character after reading an integer
+                scanner.nextLine(); // Consume the newline 
 
                 System.out.print("Designation: ");
                 String designation = scanner.nextLine();
