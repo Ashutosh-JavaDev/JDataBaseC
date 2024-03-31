@@ -138,9 +138,14 @@ class crud {
             ResultSet res = statement.executeQuery(queue);
             while (res.next()) {
                 int id = res.getInt("id");
-                String name = res.getString("name");
+                String First_Name = res.getString("First_Name");
+                String Last_Name = res.getString("Last_Name");
+                String DOB=res.getString("DOB");
+                String Gender=res.getString("Gender");
+                int Mob=res.getInt("Mob_Number");
+                String City=res.getString("City");
                 String Desi = res.getString("Degination");
-                System.out.print("|ID: " + id + " |Name: " + name + " |Degination: " + Desi + "|");
+                System.out.print("ID: " + id + " First Name: " + First_Name + "Last Name: "+Last_Name+"         |Degination: " + Desi + "|");
                 System.out.println();
             }
         } catch (SQLException e) {
