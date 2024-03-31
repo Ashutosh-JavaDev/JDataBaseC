@@ -137,14 +137,17 @@ class crud {
             String queue = "select*from Employee";
             ResultSet res = statement.executeQuery(queue);
             while (res.next()) {
-                int id = res.getInt("id");
+                int id = res.getInt("Emp_ID");
+                int DepID=res.getInt("Dep_ID");
                 String First_Name = res.getString("First_Name");
                 String Last_Name = res.getString("Last_Name");
                 String DOB=res.getString("DOB");
                 String Gender=res.getString("Gender");
                 int Mob=res.getInt("Mob_Number");
                 String City=res.getString("City");
+                int sal=res.getInt("Salary");
                 String Desi = res.getString("Degination");
+                String status=res.getString("Status");
                 System.out.print("ID: " + id + " First Name: " + First_Name + "Last Name: "+Last_Name+"         |Degination: " + Desi + "|");
                 System.out.println();
             }
