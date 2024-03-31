@@ -249,7 +249,7 @@ class crud {
 
     public void choose() {
         Scanner sc = new Scanner(System.in);
-        Inserting();
+        // Inserting();
         System.out.println("Press 1:To Read Data\nPress 2:To Update Data\nPress 3:To Delete Data");
         int press = sc.nextInt();
         switch (press) {
