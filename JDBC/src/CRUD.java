@@ -146,9 +146,10 @@ class crud {
                 int Mob=res.getInt("Mob_Number");
                 String City=res.getString("City");
                 int sal=res.getInt("Salary");
-                String Desi = res.getString("Degination");
+                String Desi = res.getString("Designation");
                 String status=res.getString("Status");
-                System.out.print("ID: " + id + " First Name: " + First_Name + "Last Name: "+Last_Name+"         |Degination: " + Desi + "|");
+                System.out.print("ID: " + id +"Dep ID: "+DepID+ " First Name: " + First_Name + "Last Name: "+Last_Name+"DOB:  "+DOB+" Gender: "+Gender+" Mob: "+Mob+" City: "+City+"Salary:  "+sal+"Designiation:  "+Desi+" Status: "+status);
+                
                 System.out.println();
             }
         } catch (SQLException e) {
