@@ -106,7 +106,7 @@ class crud {
                 String status = scanner.nextLine().toUpperCase();
 
                 // Prepare the SQL query
-                String query = String.format("INSERT INTO Employee(Emp_ID, Dep_ID, First_Name, Last_Name, DOB, Gender, Email, Mob_Number, City, Salary, Designation, Emp_Status) "+"VALUES(%d, %d, '%s', '%s', '%s', '%s', '%s', %d, '%s', %d, '%s', '%s')",id, departmentId, firstName, lastName, dobInput, gender, email, phone, city, salary,designation, status);
+                String query = String.format("INSERT INTO Employee(Emp_ID, First_Name, Last_Name, DOB, Gender, Email, Mob_Number, City, Dep_ID,Salary, Designation, Emp_Status) "+"VALUES(%d, %d, '%s', '%s', '%s', '%s', '%s', %d, '%s', %d, '%s', '%s')",id, firstName, lastName, dobInput, gender, email, phone, city, departmentId, salary,designation, status);
 
                 // Execute the query
                 int result = statement.executeUpdate(query);
