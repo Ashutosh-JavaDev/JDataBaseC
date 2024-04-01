@@ -199,15 +199,15 @@ class crud {
         try {
             Connection connection = DriverManager.getConnection(url, username, password);
             Statement statement = connection.createStatement();
-            System.out.println("Press 1: To Update ID\nPress 2: To Update Name\nPress 3: To Update Designation");
+            System.out.println("Press 1: To Update Emp ID\nPress 2: To Update First Name\nPress 3: To Update Last Name\nPress 4: To Update DOB\nPress 5: To Update Gender\nPress 6: To Update Email ID\nPress 7: To Update Mobile Number\nPress 8: To Update City\nPress 9: To Update Dep_ID\nPress 10: To Update Salary\nPress 11: To Update Designation\nPress 12: To Update Employee Status");
             int press = sc.nextInt();
             switch (press) {
                 case 1:
-                    System.out.println("Which User Id, You want to Update?");
+                    System.out.println("Which EMployee ID, You want to Update?");
                     int oldId = sc.nextInt();
                     System.out.print("New ID Number: ");
                     int newID = sc.nextInt();
-                    String query = String.format("Update Employee set id =%o where id=%o", newID, oldId);
+                    String query = String.format("Update Employee set Emp_ID =%d where Emp_ID=%d", newID, oldId);
                     int result = statement.executeUpdate(query);
                     if (result > 0) {
                         System.out.println("Data Updated Succesfully");
@@ -216,12 +216,12 @@ class crud {
                     }
                     break;
                 case 2:
-                    System.out.println("Enter the User ID whose Name Want to Update");
+                    System.out.println("Enter the Emp ID whose First Name Want to Update");
                     int uID = sc.nextInt();
                     sc.nextLine();
-                    System.out.print("New Name: ");
+                    System.out.print("New First Name: ");
                     String newName = sc.nextLine();
-                    String level = String.format("Update Employee set name ='%s' where id=%o", newName, uID);
+                    String level = String.format("Update Employee set First_Name='%s' where Emp_ID=%d", newName, uID);
                     int affectedRow = statement.executeUpdate(level);
                     if (affectedRow > 0) {
                         System.out.println("Data Updated Succesfully");
@@ -230,13 +230,13 @@ class crud {
                     }
                     break;
                 case 3:
-                    System.out.println("Enter the User ID whose Name Want to Update");
+                    System.out.println("Enter the UsEMper ID whose Last Name Want to Update");
                     int usID = sc.nextInt();
                     sc.nextLine();
 
-                    System.out.print("New Degination: ");
-                    String newDesignation = sc.nextLine();
-                    String low = String.format("Update Employee set Degination ='%s' where id=%o", newDesignation,
+                    System.out.print("New Last Name: ");
+                    String newLast = sc.nextLine();
+                    String low = String.format("Update Employee set Last_Name ='%s' where Emp_ID=%d", newLast,
                             usID);
                     int Affected = statement.executeUpdate(low);
                     if (Affected > 0) {
@@ -257,6 +257,7 @@ class crud {
 
     public void choose() {
         Scanner sc = new Scanner(System.in);
+        System.out.println();
         System.out.println("Choose the Command You want to excute");
         System.out.println(
                 "Press 0: To Insert Data\nPress 1:To Read Data\nPress 2:To Update Data\nPress 3:To Delete Data");
