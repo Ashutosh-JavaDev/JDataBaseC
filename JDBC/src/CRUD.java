@@ -241,9 +241,9 @@ class crud {
                             usID);
                     int Affected = statement.executeUpdate(low);
                     if (Affected > 0) {
-                        System.out.println("Data Updated Succesfully");
+                        dataupdate();
                     } else {
-                        System.out.println("Data Not Inserted");
+                       dataNotUpdate();
                     }
                     break;
                 case 4:
@@ -273,6 +273,7 @@ class crud {
                             continue; // Continue to the next iteration of the loop
                         }
                     }
+                    
                 default:
                     System.out.println("Invalid Press");
                     break;
