@@ -148,7 +148,7 @@ class crud {
                 int sal=res.getInt("Salary");
                 String Desi = res.getString("Designation");
                 String status=res.getString("Emp_Status");
-                System.out.print("ID: " + id +"Dep ID: "+DepID+ " First Name: " + First_Name + "Last Name: "+Last_Name+"DOB:  "+DOB+" Gender: "+Gender+" Mob: "+Mob+" City: "+City+"Salary:  "+sal+"Designiation:  "+Desi+" Status: "+status);
+                System.out.print("ID: " + id +"\nDep ID: "+DepID+ "\nFirst Name: " + First_Name + "\nLast Name: "+Last_Name+"\nDOB:  "+DOB+"\nGender: "+Gender+"\nMob: "+Mob+"\nCity: "+City+"\nSalary:  "+sal+"\nDesigniation:  "+Desi+"\nEmployee Status: "+status);
                 
                 System.out.println();
             }
