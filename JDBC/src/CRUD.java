@@ -337,6 +337,38 @@ class crud {
                         dataNotUpdate();
                     }
                     break;
+                    // 9
+                    case 9:
+                    System.out.println("Enter the Emp ID whose Department ID want to Update");
+                    int DepID = sc.nextInt();
+                    sc.nextLine();
+                    System.out.print("Enter New Email: ");
+                    int Depid = sc.nextInt();
+                    String depId = String.format("Update Employee set Dep_ID=%d where Emp_ID=%d", Depid, DepID);
+                    int newDep = statement.executeUpdate(depId);
+                    if (newDep > 0) {
+                        dataupdate();
+                    } else {
+                        dataNotUpdate();
+                    }
+                    break;
+                    // 10
+                    case 10:
+                    System.out.println("Enter the Emp ID whose Salary want to Update");
+                    int sal = sc.nextInt();
+                    sc.nextLine();
+                    System.out.print("Enter New Salary: ");
+                    int newSal = sc.nextInt();
+                    String SalNew = String.format("Update Employee set Email=%d where Emp_ID=%d", newSal, sal);
+                    int salaryNew = statement.executeUpdate(SalNew);
+                    if (salaryNew > 0) {
+                        dataupdate();
+                    } else {
+                        dataNotUpdate();
+                    }
+                    break;
+                    // 11
+                    
                 default:
                     System.out.println("Invalid Press");
                     break;
