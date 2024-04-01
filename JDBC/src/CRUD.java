@@ -138,28 +138,28 @@ class crud {
             Statement statement = conn.createStatement();
             String queue = "select*from Employee";
             ResultSet res = statement.executeQuery(queue);
-            
-                while (res.next()) {
-                    int id = res.getInt("Emp_ID");
-                    int DepID = res.getInt("Dep_ID");
-                    String First_Name = res.getString("First_Name");
-                    String Last_Name = res.getString("Last_Name");
-                    String DOB = res.getString("DOB");
-                    String Gender = res.getString("Gender");
-                    String Mob = res.getString("Mob_Number");
-                    String City = res.getString("City");
-                    int sal = res.getInt("Salary");
-                    String Desi = res.getString("Designation");
-                    String status = res.getString("Emp_Status");
-                    System.out.print("ID: " + id + "\nDep ID: " + DepID + "\nFirst Name: " + First_Name + "\nLast Name: "
-                            + Last_Name + "\nDOB:  " + DOB + "\nGender: " + Gender + "\nMob: " + Mob + "\nCity: " + City
-                            + "\nSalary:  " + sal + "\nDesigniation:  " + Desi + "\nEmployee Status: " + status);
-                    System.out.println();
-                    System.out.println(
-                            "\nNew Employee------------------------------------------------------------------------------------------------------------------------------------------------------------");
-                    System.out.println();
-                }
-           
+
+            while (res.next()) {
+                int id = res.getInt("Emp_ID");
+                int DepID = res.getInt("Dep_ID");
+                String First_Name = res.getString("First_Name");
+                String Last_Name = res.getString("Last_Name");
+                String DOB = res.getString("DOB");
+                String Gender = res.getString("Gender");
+                String Mob = res.getString("Mob_Number");
+                String City = res.getString("City");
+                int sal = res.getInt("Salary");
+                String Desi = res.getString("Designation");
+                String status = res.getString("Emp_Status");
+                System.out.print("ID: " + id + "\nDep ID: " + DepID + "\nFirst Name: " + First_Name + "\nLast Name: "
+                        + Last_Name + "\nDOB:  " + DOB + "\nGender: " + Gender + "\nMob: " + Mob + "\nCity: " + City
+                        + "\nSalary:  " + sal + "\nDesigniation:  " + Desi + "\nEmployee Status: " + status);
+                System.out.println();
+                System.out.println(
+                        "\nNew Employee------------------------------------------------------------------------------------------------------------------------------------------------------------");
+                System.out.println();
+            }
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -199,7 +199,8 @@ class crud {
         try {
             Connection connection = DriverManager.getConnection(url, username, password);
             Statement statement = connection.createStatement();
-            System.out.println("Press 1: To Update Emp ID\nPress 2: To Update First Name\nPress 3: To Update Last Name\nPress 4: To Update DOB\nPress 5: To Update Gender\nPress 6: To Update Email ID\nPress 7: To Update Mobile Number\nPress 8: To Update City\nPress 9: To Update Dep_ID\nPress 10: To Update Salary\nPress 11: To Update Designation\nPress 12: To Update Employee Status");
+            System.out.println(
+                    "Press 1: To Update Emp ID\nPress 2: To Update First Name\nPress 3: To Update Last Name\nPress 4: To Update DOB\nPress 5: To Update Gender\nPress 6: To Update Email ID\nPress 7: To Update Mobile Number\nPress 8: To Update City\nPress 9: To Update Dep_ID\nPress 10: To Update Salary\nPress 11: To Update Designation\nPress 12: To Update Employee Status");
             int press = sc.nextInt();
             switch (press) {
                 case 1:
@@ -230,7 +231,7 @@ class crud {
                     }
                     break;
                 case 3:
-                    System.out.println("Enter the UsEMper ID whose Last Name Want to Update");
+                    System.out.println("Enter the Emp ID whose Last Name Want to Update");
                     int usID = sc.nextInt();
                     sc.nextLine();
 
@@ -245,6 +246,33 @@ class crud {
                         System.out.println("Data Not Inserted");
                     }
                     break;
+                case 4:
+                    System.out.println("Enter the Emp ID to Update DOB");
+                    int upDOB = sc.nextInt();
+                    while (true) {
+                        System.out.println("Enter New Date of Birth 'YYYY-MM-DD'");
+                        String dobInput = sc.nextLine(); // Read the input as a String
+
+                        // Define a DateTimeFormatter for parsing the input
+                        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+                        try {
+                            LocalDate dob = LocalDate.parse(dobInput, formatter); // Parse the input into LocalDate
+                            System.out.println("Date of Birth: " + dob);
+                            String dateofBirth = String.format("Update Employee set DOB='%s' where Emp_ID=%d", dob,
+                                    upDOB);
+                            int local = statement.executeUpdate(dateofBirth);
+                            if (local > 0) {
+                                dataupdate();
+                            }
+                            else{
+                                dataNotUpdate();
+                            }
+                        } catch (DateTimeParseException e) {
+                            System.out.println("Invalid date format. Please enter the date in 'YYYY-MM-DD' format.");
+                            continue; // Continue to the next iteration of the loop
+                        }
+                    }
                 default:
                     System.out.println("Invalid Press");
                     break;
@@ -253,6 +281,14 @@ class crud {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public void dataupdate() {
+        System.out.println("Data Updated Succesfully");
+    }
+
+    public void dataNotUpdate() {
+        System.out.println("Data Not Updated");
     }
 
     public void choose() {
