@@ -274,25 +274,38 @@ class crud {
                             System.out.println("Invalid date format. Please enter the date in 'YYYY-MM-DD' format.");
                             continue; // Continue to the next iteration of the loop
                         }
-                        
+
                     }
                     break;
 
                 case 5:
-                    System.out.println("Enter the Emp ID whose Gender wannt to Update");
-                    int gender=sc.nextInt();
+                    System.out.print("Enter the Emp ID whose Gender wannt to Update: ");
+                    int gender = sc.nextInt();
                     sc.nextLine();
-                    System.out.println("New gender: 'M'/'F'/'T'");
-                    String newGender=sc.nextLine().toUpperCase();
-                    String gen=String.format("Update Employee set Gender='%s' where Emp_ID=%d",newGender,gender);
-                    int gendernew=statement.executeUpdate(gen);
-                    if(gendernew>0){
+                    System.out.print("New gender: 'M'/'F'/'T': ");
+                    String newGender = sc.nextLine().toUpperCase();
+                    String gen = String.format("Update Employee set Gender='%s' where Emp_ID=%d", newGender, gender);
+                    int gendernew = statement.executeUpdate(gen);
+                    if (gendernew > 0) {
                         dataupdate();
-                    }
-                    else{
+                    } else {
                         dataNotUpdate();
                     }
 
+                    break;
+                case 6:
+                    System.out.println("Enter the Emp ID whose Email want to Update");
+                    int email = sc.nextInt();
+                    sc.nextLine();
+                    System.out.print("Enter New Email: ");
+                    String newEmail = sc.nextLine();
+                    String emailNew = String.format("Update Employee set Email='%s' where Emp_ID=%d", newEmail, email);
+                    int emailId = statement.executeUpdate(emailNew);
+                    if (emailId > 0) {
+                        dataupdate();
+                    } else {
+                        dataNotUpdate();
+                    }
                     break;
                 default:
                     System.out.println("Invalid Press");
