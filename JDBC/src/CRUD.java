@@ -143,7 +143,7 @@ class crud {
                 String Last_Name = res.getString("Last_Name");
                 String DOB=res.getString("DOB");
                 String Gender=res.getString("Gender");
-                String Mob=res.getInt("Mob_Number");
+                String Mob=res.getString("Mob_Number");
                 String City=res.getString("City");
                 int sal=res.getInt("Salary");
                 String Desi = res.getString("Designation");
