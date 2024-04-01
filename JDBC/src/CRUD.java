@@ -138,26 +138,33 @@ class crud {
             Statement statement = conn.createStatement();
             String queue = "select*from Employee";
             ResultSet res = statement.executeQuery(queue);
-            while (res.next()) {
-                int id = res.getInt("Emp_ID");
-                int DepID = res.getInt("Dep_ID");
-                String First_Name = res.getString("First_Name");
-                String Last_Name = res.getString("Last_Name");
-                String DOB = res.getString("DOB");
-                String Gender = res.getString("Gender");
-                String Mob = res.getString("Mob_Number");
-                String City = res.getString("City");
-                int sal = res.getInt("Salary");
-                String Desi = res.getString("Designation");
-                String status = res.getString("Emp_Status");
-                System.out.print("ID: " + id + "\nDep ID: " + DepID + "\nFirst Name: " + First_Name + "\nLast Name: "
-                        + Last_Name + "\nDOB:  " + DOB + "\nGender: " + Gender + "\nMob: " + Mob + "\nCity: " + City
-                        + "\nSalary:  " + sal + "\nDesigniation:  " + Desi + "\nEmployee Status: " + status);
-                System.out.println();
-                System.out.println(
-                        "\nNew Employee------------------------------------------------------------------------------------------------------------------------------------------------------------");
-                System.out.println();
+            int result=statement.executeUpdate(queue);
+            if(result>0){
+                while (res.next()) {
+                    int id = res.getInt("Emp_ID");
+                    int DepID = res.getInt("Dep_ID");
+                    String First_Name = res.getString("First_Name");
+                    String Last_Name = res.getString("Last_Name");
+                    String DOB = res.getString("DOB");
+                    String Gender = res.getString("Gender");
+                    String Mob = res.getString("Mob_Number");
+                    String City = res.getString("City");
+                    int sal = res.getInt("Salary");
+                    String Desi = res.getString("Designation");
+                    String status = res.getString("Emp_Status");
+                    System.out.print("ID: " + id + "\nDep ID: " + DepID + "\nFirst Name: " + First_Name + "\nLast Name: "
+                            + Last_Name + "\nDOB:  " + DOB + "\nGender: " + Gender + "\nMob: " + Mob + "\nCity: " + City
+                            + "\nSalary:  " + sal + "\nDesigniation:  " + Desi + "\nEmployee Status: " + status);
+                    System.out.println();
+                    System.out.println(
+                            "\nNew Employee------------------------------------------------------------------------------------------------------------------------------------------------------------");
+                    System.out.println();
+                }
             }
+            else{
+                System.out.println("Data Is Empty");
+            }
+           
         } catch (SQLException e) {
             e.printStackTrace();
         }
