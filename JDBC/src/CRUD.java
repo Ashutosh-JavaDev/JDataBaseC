@@ -307,6 +307,36 @@ class crud {
                         dataNotUpdate();
                     }
                     break;
+                    // 7
+                    case 7:
+                    System.out.println("Enter the Emp ID whose Mobile Number want to Update");
+                    int mob = sc.nextInt();
+                    sc.nextLine();
+                    System.out.print("Enter New Mobile Number: ");
+                    String Mobile = sc.nextLine();
+                    String mobNew = String.format("Update Employee set Mob_Number='%s' where Emp_ID=%d", Mobile, mob);
+                    int moblieNew = statement.executeUpdate(mobNew);
+                    if (moblieNew > 0) {
+                        dataupdate();
+                    } else {
+                        dataNotUpdate();
+                    }
+                    break;
+                    // 8
+                    case 8:
+                    System.out.println("Enter the Emp ID whose City want to Update");
+                    int city = sc.nextInt();
+                    sc.nextLine();
+                    System.out.print("Enter New City: ");
+                    String newCity = sc.nextLine();
+                    String cityNew = String.format("Update Employee set City='%s' where Emp_ID=%d", newCity, city);
+                    int citynew = statement.executeUpdate(cityNew);
+                    if (citynew > 0) {
+                        dataupdate();
+                    } else {
+                        dataNotUpdate();
+                    }
+                    break;
                 default:
                     System.out.println("Invalid Press");
                     break;
