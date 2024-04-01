@@ -382,6 +382,21 @@ class crud {
                         dataNotUpdate();
                     }
                     break;
+                    // 12
+                    case 12:
+                    System.out.println("Enter the Emp ID whose Status want to Update");
+                    int Stat = sc.nextInt();
+                    sc.nextLine();
+                    System.out.print("Enter New Employee Status: ");
+                    String newStatus = sc.nextLine();
+                    String StatusNew = String.format("Update Employee set Emp_Status='%s' where Emp_ID=%d", newStatus, Stat);
+                    int newStat = statement.executeUpdate(StatusNew);
+                    if (newStat > 0) {
+                        dataupdate();
+                    } else {
+                        dataNotUpdate();
+                    }
+                    break;
                 default:
                     System.out.println("Invalid Press");
                     break;
