@@ -262,6 +262,7 @@ class crud {
 
     public void choose() {
         Scanner sc = new Scanner(System.in);
+        System.out.println("Choose the Command You want to excute");
         System.out.println(
                 "Press 0: To Insert Data\nPress 1:To Read Data\nPress 2:To Update Data\nPress 3:To Delete Data");
         int press = sc.nextInt();
