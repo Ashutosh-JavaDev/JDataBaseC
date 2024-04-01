@@ -175,7 +175,7 @@ class crud {
             Statement statement = connec.createStatement();
             System.out.println("Which Employee ID you want to Delete?");
             int empID = sc.nextInt();
-            String Query = String.format("Delete from Employee where id=%o", empID);
+            String Query = String.format("Delete from Employee where Emp_ID=%d", empID);
             int AffectedRow = statement.executeUpdate(Query);
             if (AffectedRow > 0) {
                 System.out.println("Data Deleted Succesfully");
