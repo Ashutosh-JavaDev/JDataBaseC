@@ -96,8 +96,8 @@ class crud {
                 String city = scanner.nextLine();
 
                 System.out.print("Salary: ");
-                int salary = scanner.nextInt();
-                scanner.nextLine(); // Consume the newline 
+                String salary = scanner.nextLine();
+                
 
                 System.out.print("Designation: ");
                 String designation = scanner.nextLine();
@@ -107,7 +107,7 @@ class crud {
 
                 // Prepare the SQL query
                 String query = String.format("INSERT INTO Employee(Emp_ID, First_Name, Last_Name, DOB, Gender, Email, Mob_Number, City, Dep_ID, Salary, Designation, Emp_Status) " +
-                "VALUES(%d, '%s', '%s', '%s', '%s', '%s', '%s', '%s', %d, %d, '%s', '%s')",
+                "VALUES(%d, '%s', '%s', '%s', '%s', '%s', '%s', '%s', %d, '%s', '%s', '%s')",
                 id, firstName, lastName, dobInput, gender, email, phone, city, departmentId, salary, designation, status);
 
                 // Execute the query
@@ -143,7 +143,7 @@ class crud {
                 String Last_Name = res.getString("Last_Name");
                 String DOB=res.getString("DOB");
                 String Gender=res.getString("Gender");
-                int Mob=res.getInt("Mob_Number");
+                String Mob=res.getInt("Mob_Number");
                 String City=res.getString("City");
                 int sal=res.getInt("Salary");
                 String Desi = res.getString("Designation");
