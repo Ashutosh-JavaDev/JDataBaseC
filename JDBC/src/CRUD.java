@@ -149,7 +149,8 @@ class crud {
                 String Desi = res.getString("Designation");
                 String status=res.getString("Emp_Status");
                 System.out.print("ID: " + id +"\nDep ID: "+DepID+ "\nFirst Name: " + First_Name + "\nLast Name: "+Last_Name+"\nDOB:  "+DOB+"\nGender: "+Gender+"\nMob: "+Mob+"\nCity: "+City+"\nSalary:  "+sal+"\nDesigniation:  "+Desi+"\nEmployee Status: "+status);
-                System.out.println("New Employee------------------------------------------------------------------------------------------------------------------------------------------------------------");
+                System.out.println();
+                System.out.println("\nNew Employee------------------------------------------------------------------------------------------------------------------------------------------------------------");
                 System.out.println();
             }
         } catch (SQLException e) {
