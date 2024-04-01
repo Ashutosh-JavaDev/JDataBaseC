@@ -243,12 +243,14 @@ class crud {
                     if (Affected > 0) {
                         dataupdate();
                     } else {
-                       dataNotUpdate();
+                        dataNotUpdate();
                     }
                     break;
                 case 4:
                     System.out.println("Enter the Emp ID to Update DOB");
                     int upDOB = sc.nextInt();
+                    sc.nextLine(); // Consume the newline character
+
                     while (true) {
                         System.out.println("Enter New Date of Birth 'YYYY-MM-DD'");
                         String dobInput = sc.nextLine(); // Read the input as a String
@@ -264,16 +266,34 @@ class crud {
                             int local = statement.executeUpdate(dateofBirth);
                             if (local > 0) {
                                 dataupdate();
-                            }
-                            else{
+                            } else {
                                 dataNotUpdate();
                             }
+                            break;
                         } catch (DateTimeParseException e) {
                             System.out.println("Invalid date format. Please enter the date in 'YYYY-MM-DD' format.");
                             continue; // Continue to the next iteration of the loop
                         }
+                        
                     }
-                    
+                    break;
+
+                case 5:
+                    System.out.println("Enter the Emp ID whose Gender wannt to Update");
+                    int gender=sc.nextInt();
+                    sc.nextLine();
+                    System.out.println("New gender: 'M'/'F'/'T'");
+                    String newGender=sc.nextLine().toUpperCase();
+                    String gen=String.format("Update Employee set Gender='%s' where Emp_ID=%d",newGender,gender);
+                    int gendernew=statement.executeUpdate(gen);
+                    if(gendernew>0){
+                        dataupdate();
+                    }
+                    else{
+                        dataNotUpdate();
+                    }
+
+                    break;
                 default:
                     System.out.println("Invalid Press");
                     break;
