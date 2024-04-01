@@ -48,7 +48,7 @@ class crud {
                         System.out.println("Enter Valid Name");
                         firstName = scanner.nextLine();
                     } else {
-                        System.out.println("First Name: "+firstName);
+                        System.out.println("First Name: " + firstName);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -62,7 +62,7 @@ class crud {
                         System.out.println("Enter Valid Name");
                         lastName = scanner.nextLine();
                     } else {
-                        System.out.println("Last Name: "+lastName);
+                        System.out.println("Last Name: " + lastName);
 
                     }
                 } catch (Exception e) {
@@ -97,7 +97,6 @@ class crud {
 
                 System.out.print("Salary: ");
                 String salary = scanner.nextLine();
-                
 
                 System.out.print("Designation: ");
                 String designation = scanner.nextLine();
@@ -106,9 +105,12 @@ class crud {
                 String status = scanner.nextLine().toUpperCase();
 
                 // Prepare the SQL query
-                String query = String.format("INSERT INTO Employee(Emp_ID, First_Name, Last_Name, DOB, Gender, Email, Mob_Number, City, Dep_ID, Salary, Designation, Emp_Status) " +
-                "VALUES(%d, '%s', '%s', '%s', '%s', '%s', '%s', '%s', %d, '%s', '%s', '%s')",
-                id, firstName, lastName, dobInput, gender, email, phone, city, departmentId, salary, designation, status);
+                String query = String.format(
+                        "INSERT INTO Employee(Emp_ID, First_Name, Last_Name, DOB, Gender, Email, Mob_Number, City, Dep_ID, Salary, Designation, Emp_Status) "
+                                +
+                                "VALUES(%d, '%s', '%s', '%s', '%s', '%s', '%s', '%s', %d, '%s', '%s', '%s')",
+                        id, firstName, lastName, dobInput, gender, email, phone, city, departmentId, salary,
+                        designation, status);
 
                 // Execute the query
                 int result = statement.executeUpdate(query);
@@ -138,19 +140,22 @@ class crud {
             ResultSet res = statement.executeQuery(queue);
             while (res.next()) {
                 int id = res.getInt("Emp_ID");
-                int DepID=res.getInt("Dep_ID");
+                int DepID = res.getInt("Dep_ID");
                 String First_Name = res.getString("First_Name");
                 String Last_Name = res.getString("Last_Name");
-                String DOB=res.getString("DOB");
-                String Gender=res.getString("Gender");
-                String Mob=res.getString("Mob_Number");
-                String City=res.getString("City");
-                int sal=res.getInt("Salary");
+                String DOB = res.getString("DOB");
+                String Gender = res.getString("Gender");
+                String Mob = res.getString("Mob_Number");
+                String City = res.getString("City");
+                int sal = res.getInt("Salary");
                 String Desi = res.getString("Designation");
-                String status=res.getString("Emp_Status");
-                System.out.print("ID: " + id +"\nDep ID: "+DepID+ "\nFirst Name: " + First_Name + "\nLast Name: "+Last_Name+"\nDOB:  "+DOB+"\nGender: "+Gender+"\nMob: "+Mob+"\nCity: "+City+"\nSalary:  "+sal+"\nDesigniation:  "+Desi+"\nEmployee Status: "+status);
+                String status = res.getString("Emp_Status");
+                System.out.print("ID: " + id + "\nDep ID: " + DepID + "\nFirst Name: " + First_Name + "\nLast Name: "
+                        + Last_Name + "\nDOB:  " + DOB + "\nGender: " + Gender + "\nMob: " + Mob + "\nCity: " + City
+                        + "\nSalary:  " + sal + "\nDesigniation:  " + Desi + "\nEmployee Status: " + status);
                 System.out.println();
-                System.out.println("\nNew Employee------------------------------------------------------------------------------------------------------------------------------------------------------------");
+                System.out.println(
+                        "\nNew Employee------------------------------------------------------------------------------------------------------------------------------------------------------------");
                 System.out.println();
             }
         } catch (SQLException e) {
@@ -250,10 +255,13 @@ class crud {
 
     public void choose() {
         Scanner sc = new Scanner(System.in);
-        // Inserting();
-        System.out.println("Press 1:To Read Data\nPress 2:To Update Data\nPress 3:To Delete Data");
+        System.out.println(
+                "Press 0: To Insert Data\nPress 1:To Read Data\nPress 2:To Update Data\nPress 3:To Delete Data");
         int press = sc.nextInt();
         switch (press) {
+            case 0:
+                Inserting();
+                break;
             case 1:
                 Read();
                 break;
