@@ -138,8 +138,7 @@ class crud {
             Statement statement = conn.createStatement();
             String queue = "select*from Employee";
             ResultSet res = statement.executeQuery(queue);
-            int result=statement.executeUpdate(queue);
-            if(result>0){
+            
                 while (res.next()) {
                     int id = res.getInt("Emp_ID");
                     int DepID = res.getInt("Dep_ID");
@@ -160,10 +159,6 @@ class crud {
                             "\nNew Employee------------------------------------------------------------------------------------------------------------------------------------------------------------");
                     System.out.println();
                 }
-            }
-            else{
-                System.out.println("Data Is Empty");
-            }
            
         } catch (SQLException e) {
             e.printStackTrace();
