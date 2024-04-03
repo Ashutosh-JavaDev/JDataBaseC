@@ -18,13 +18,11 @@ class Displaying{
         try{
             Connection conn=DriverManager.getConnection(url, username, password);
             Statement state=conn.createStatement();
-            String query="select*from Employee";
+            String query="select First_Name from Employee";
             ResultSet result=state.executeQuery(query);
             while(result.next()){
-                int id=result.getInt("id");
-                String name=result.getString("username");
-                String Deg=result.getString("Degination");
-                System.out.print("|ID: "+id+" |Name: "+name+" |Degination: "+Deg+"|");
+               String firstname=result.getString("First_Name");
+               System.out.println("First Name: "+firstname);
               System.out.println();
             }
         }
